@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.tiny.cloud/1/xlw95bnwbsqyn2vhjstpgprzlzuvw81t9z4ir29j2793pyz6/tinymce/7/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      tinymce.init({
+        selector: "#myTextarea",
+        width: 600,
+        height: 300,
+        plugins: [
+          "advlist",
+          "autolink",
+          "link",
+          "image",
+          "lists",
+          "charmap",
+          "preview",
+          "anchor",
+          "pagebreak",
+          "searchreplace",
+          "wordcount",
+          "visualblocks",
+          "visualchars",
+          "code",
+          "fullscreen",
+          "insertdatetime",
+          "media",
+          "table",
+          "emoticons",
+          "help",
+        ],
+        toolbar:
+          "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | " +
+          "bullist numlist outdent indent | link image | print preview media fullscreen | " +
+          "forecolor backcolor emoticons | help",
+        menu: {
+          favs: {
+            title: "My Favorites",
+            items: "code visualaid | searchreplace | emoticons",
+          },
+        },
+        menubar: "favs file edit view insert format tools table help",
+        content_css: "css/content.css",
+      });
+    </script>
+  </head>
+  <body>
+    <form action="/post/edit/<%=post._id%>" method="post" data-id="<%=post._id %>" id="update-post-form">
+      <input
+        type="text"
+        name="title"
+        
+        placeholder="Title"
+      />
+      <input
+        type="text"
+        name="description"
+      
+        placeholder="Description"
+        
+      />
+      <textarea name="content" id="myTextarea"></textarea>
+      <input type="hidden" name="postId" value="<%=post._id %>">
+      <button type="submit">Update Post</button>
+    </form>
+
+    <script>
+      document.querySelector('input[name="title"]').value = "<%= post.title %>";
+      document.querySelector('input[name="description"]').value = "<%= post.description %>";
+      document.querySelector('textarea[name="content"]').innerHTML = "<%- post.content %>";
+      var socket=io();
+      $("#update-post-form").submit(function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        tinymce.triggerSave();
+
+        const postId = $(this).data("id"); // Assuming the form has a data-id attribute with the post ID
+        var formData={}
+        $.each($(this).serializeArray(), function(i, field) {
+                formData[field.name] = field.value;
+        });
+
+        formData.content=tinymce.get("myTextarea").getContent();
+         // Serialize form data for sending
+        console.log("Serialized form data:", formData);
+
+        $.ajax({
+          url: `/post/edit/${postId}`,
+          type: "POST",
+          data: formData,
+          success: function (response) {
+            if (response.success) {
+              alert(response.message || "Post updated successfully.");
+              socket.emit("post_updated", formData); // Emit event on success
+              window.location.href = "/allposts"; // Redirect to allposts page
+            } else {
+              alert("Failed to update the post. Please try again.");
+            }
+          },
+          error: function (xhr, status, error) {
+            console.log("AJAX error:", status, error);
+            alert("An error occurred while updating the post.");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

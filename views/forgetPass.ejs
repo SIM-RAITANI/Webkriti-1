@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/stylesheets/resetForgetPass.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/images/finallogo.png" alt="Logo" class="logo">
+            <h2>Forget your Password?</h2>
+        </div>
+        
+        <form class="login-form" action="/forget-password" method="post">
+
+            <input type="email" placeholder="Email" name="email">
+            <% if (typeof message !== 'undefined') { %>
+                <p><%= message %></p>
+              <% } %>
+            
+            <button name="submit" type="submit" class="submit">Send</button>
+            
+            
+        </form>
+      
+           
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+

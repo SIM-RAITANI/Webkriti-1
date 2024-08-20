@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tiny.cloud/1/xlw95bnwbsqyn2vhjstpgprzlzuvw81t9z4ir29j2793pyz6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#myTextarea',
+        plugins: [
+        'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+        'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+        'media', 'table', 'emoticons', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+        'forecolor backcolor emoticons | help',
+        menu: {
+        favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+        },
+        menubar: 'favs file edit view insert format tools table help',
+        content_css: 'css/content.css'
+    });
+    </script>
+    <title>Editor</title>
+    <link rel="stylesheet" href="/stylesheets/editor.css">
+</head>
+
+<body>
+    <%- include('./layouts/headerEditor.ejs') %>
+
+    <div class="container">
+        <div class="form-wrapper">
+            <!-- Image Upload Form -->
+            <form action="/post/upload-image" method="post" id="uploadImage" enctype="multipart/form-data" >
+                <input type="file" id="image" name="image" accept=".jpeg, .jpg, .png">
+                
+                <button type="submit" class="image-upload-button">Upload image</button>
+            </form>
+            
+
+            <!-- Post Creation Form -->
+            <form action="/post" method="post" id="addPost">
+
+                <input type="hidden" name="imageSrc" id="imageSrc">
+                <input type="text" placeholder="Title" name="title" maxlength="100" required>
+                <input type="text" name="description" placeholder="Enter description within 100 words" maxlength="100" required>
+                <select name="category" required>
+                    <option value="Science">Science</option>
+                    <option value="Food">Food</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Technology">Travel</option>
+                    <option value="Technology">Beauty</option>
+                    <option value="Technology">Lifestyle</option>
+                    <option value="Technology">Sport</option>
+                    <option value="Technology">Fashion</option>
+                </select>
+                
+                <textarea name="content" id="myTextarea" ></textarea>
+                <button type="submit" class="submit-button">Publish</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        var socket = io(); // Initialize Socket.io connection
+
+        // Handle Post Submission
+        $("#addPost").submit(function(event) {
+            event.preventDefault();
+
+            var formData = {};
+            var obj = $(this);
+            $.each($(this).serializeArray(), function(i, field) {
+                formData[field.name] = field.value;
+            });
+
+            $.ajax({
+                url: "/post",
+                type: "POST",
+                data: formData,
+                success: function(data) {
+                    try {
+                        if (data && data.success) {
+                            alert(data.msg);
+                            $(obj)[0].reset();
+                            tinymce.get('myTextarea').setContent('');
+                            $("#image").val("");
+                            formData._id = data._id;
+                            socket.emit("new_post", formData);
+                        } else {
+                            console.log("Unexpected response format:", data);
+                        }
+                    } catch (error) {
+                        console.log("Error handling response:", error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("AJAX error:", status, error);
+                }
+            });
+
+            socket.on("new_post", function(data) {
+                console.log("New post broadcasted:", data);
+            });
+        });
+
+        // Handle Image Upload
+        $("#uploadImage").submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/post/upload-image",
+                type: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    if (data.success) {
+                     
+                      
+                        $("#imageSrc").val(data.path);
+                        alert(data.msg);
+                        
+                        
+                        
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("AJAX error:", status, error);
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
+
+
+

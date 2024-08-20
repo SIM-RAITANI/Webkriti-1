@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #f7f1e3;
+
+}
+.form-wrapper{
+    
+}
+form #uploadImage{
+    display: flex;
+    gap: 10px;
+}
+.container{
+    height: 100vh;
+    margin-top: 95px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.form-wrapper{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+ #uploadImage{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    background-color: white;
+    padding: 8px 10px;
+}
+#addPost {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+
+}
+.image-upload-button{
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #f4722b;
+    cursor: pointer;
+    color: white;
+}
+input{
+    outline: none;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+.submit-button{
+    width:100px;
+    margin: 0px auto;
+    padding: 14px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color:#f4722b ;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    
+}
+button:hover{
+    background-color: #f1a349;
+}
+#myTextarea{
+    width: 100%;
+    min-height: 800px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All posts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div class="posts">
+      <% userprofile.posts.slice().reverse().forEach(post => { %>
+      <div id="post-<%=post._id %>">
+        <h1 class="post-title"><%= post.title %></h1>
+        <p class="post-description"><%= post.description %></p>
+        <p><%= userprofile.name %></p>
+        <p><%= post.likes.length %></p>
+        <a href="/post/like/<%= post._id %>">
+          <%= post.likes.indexOf(userprofile._id) === -1 ? "Like" : "Unlike" %>
+        </a>
+        <a href="/post/edit/<%= post._id %>">Edit</a>
+        <button class="delete-post-btn" data-id="<%= post._id %>">
+          Delete Post
+        </button>
+
+        <a href="/post/read-post/<%= post._id %>">Read More</a>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+
+  <script>
+    console.log("hello");
+
+    $(document).ready(function () {
+      console.log("hello");
+
+      var socket = io();
+
+      socket.on("connect", function () {
+        console.log("Socket connected");
+      });
+
+      socket.on("post_updated", function (data) {
+        console.log("data",data);
+        
+        // Assuming each post has an element with an ID like `post-{postId}`
+        const postElement = document.querySelector(`#post-${data.postId}`);
+
+        if (postElement) {
+          // Update the post content dynamically
+          postElement.querySelector(".post-title").textContent = data.title;
+          postElement.querySelector(".post-description").textContent =
+            data.description;
+        
+        }
+      });
+
+      socket.on("new_post", function (formData) {
+        console.log("Received new post data:", formData);
+
+        if (formData) {
+          var html = `
+            <div>
+                <h1>${formData.title}</h1>
+                <p>${formData.content}</p>
+                
+                
+                <a href="/post/edit/${formData._id}">Edit</a>
+                <a href="/post/delete/${formData._id}">Delete</a>
+                <a href="/post/read-post/${formData._id}">Read More</a>
+            </div>
+          `;
+
+          console.log("Generated HTML:", html);
+
+          $(".posts").prepend(html); // Prepend the generated HTML to the .posts element
+        } else {
+          console.error("formData is undefined or null");
+        }
+      });
+
+      $(".delete-post-btn").click(function (event) {
+        event.preventDefault();
+
+        if (!confirm("Are you sure you want to delete this post?")) {
+          return;
+        }
+
+        const postId = $(this).data("id");
+
+        $.ajax({
+          url: `/post/delete/${postId}`,
+          type: "GET",
+          success: function (response) {
+            if (response.success) {
+              alert(response.message || "Post deleted successfully.");
+              $(`#post-${postId}`).remove(); // Assuming each post has an id like `post-{postId}`
+              socket.emit("post_deleted", { postId: postId });
+            } else {
+              alert("Failed to delete the post. Please try again.");
+            }
+          },
+          error: function (xhr, status, error) {
+            console.log("AJAX error:", status, error);
+            alert("An error occurred while deleting the post.");
+          },
+        });
+      });
+    });
+  </script>
+</html>

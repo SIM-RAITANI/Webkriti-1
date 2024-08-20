@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekh-Luster SIGN UP</title>
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- <div class="close-btn">&times;</div> -->
+        <div class="login-header">
+            <img src="/images/finallogo.png"  class="logo">
+            <h2>Welcome to Lekh-Luster</h2>
+        </div>
+        <form class="login-form" action="/signup" method="post">
+           <input type="text" placeholder="Name" class="email" name="name">
+           <input type="email" placeholder="Email" class="email" name="email">
+           <div class="password">
+            <input type="password"  placeholder="Create a password" id="password" name="password">
+            <span id="togglePassword" class="toggle-password">&#128065;</span>
+           </div>
+           <div class="datepicker">
+            <input type="text" id="dateInput" placeholder="DD/MM/YYYY">
+            <span class="calendar-icon">&#x1F4C5;</span> 
+           </div>
+            
+            <button type="submit" class="login-btn">Sign up</button>
+        </form>
+        <div class="social-login">
+            <p>OR</p>
+            <!-- <button class="google-btn">Continue with Google</button> -->
+        </div>
+        <!-- <div class="continue-as">
+            <button class="google-btn google-continue">Continue as Akshat</button>
+        </div> -->
+       
+        <div class="signup-link">
+            <p style="font-size: 14px;">Already , On Lekh-Luster? <a href="/login" style="text-decoration: underline; color:#f4722b; font-size: 13px;">Log in</a></p>
+            
+        </div>
+    </div>
+    <script src="../public/javascripts/signup.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+</body>
+</html>
