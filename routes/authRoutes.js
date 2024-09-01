@@ -1,6 +1,6 @@
 const express=require("express");
 const router=express.Router();
-const {isLogin,registerUser,logout,forgetPassword, resetPassword,setResetPass}=require("../controllers/authController");
+const {isLogin,registerUser,logout,forgetPassword, resetPassword,setResetPass,getHomePage}=require("../controllers/authController");
 const logoutMiddleware=require("../middlewares/isLogout");
 const isLoggedInMiddleware=require("../middlewares/isLoggedIn");
 const checkAuthentication=require("../middlewares/checkAuthentication");
@@ -19,9 +19,7 @@ router.get("/login",restrictLoggedInAccess,function(req,res){
 router.get("/signup",restrictLoggedInAccess,function(req,res){
     res.render("signup")
 })
-router.get("/home",isLoggedInMiddleware,function(req,res){
-    res.render("home");
-})
+router.get("/home",isLoggedInMiddleware,getHomePage);
 
 
 //set up the get route to change the password via email

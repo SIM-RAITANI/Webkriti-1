@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/view-all.css" />
+  </head>
+  <body>
+    <nav>
+        <div class="logo">
+            <a href="/home" style="cursor: pointer; text-decoration: none;"><img src="/images/finallogo.png" alt=""></a>
+        </div>
+    </nav>
+    <div class="container">
+      <div class="box">
+        <% posts.forEach(post => { %>
+
+        <div class="card">
+           
+          <div class="postImage">
+            <img src="<%=post.image %>" alt="" />
+          </div>
+          <div class="postContent">
+            <h2>
+              <a
+                href="/post/read-post/<%=post._id %>"
+                style="text-decoration: none"
+                id="post-link"
+                ><%=post.title %></a
+              >
+            </h2>
+            <p><%=post.description %></p>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

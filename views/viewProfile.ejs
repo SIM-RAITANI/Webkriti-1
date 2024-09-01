@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/stylesheets/viewProfile.css" />
+
+<div class="viewProfile">
+  <div class="userProfile-userDescription">
+    <div class="profile-image">
+      <img src="<%=userInfo.profilePic %>" alt="" id="profile-viewProfile" />
+    </div>
+    <div class="user-Description">
+      <div class="user-info">
+        <h1 style="color: #f4722b;font-size: 35px;"><%=userInfo.name %></h1>
+        <p style="color: gray;font-size: 16px;"><%=userInfo.about %></p>
+      </div>
+      <p style="color: black;margin-top: 20px;"><%=userInfo.description %></p>
+    </div>
+  </div>
+  <div class="user-details">
+       <div class="content">
+           <p>Name:</p>
+           <div><%=userInfo.name %></div>
+       </div>
+       <div class="content">
+           <p>E-mail:</p>
+           <div><%=userInfo.email %></div>
+       </div>
+       <div class="content">
+           <p>Gender:</p>
+           <div><%=userInfo.gender %></div>
+       </div>
+
+       <button id="editButton"><a href="/profile/editProfile" style="color: white;">Edit Profile</a></button>
+  </div>
+</div>

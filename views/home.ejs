@@ -8,11 +8,123 @@
 </head>
 <body>
     <%- include("./layouts/header.ejs") %>
-    <div class="home-page-container">
-        <div class="home-image">
-            
+    <div class="container">
+        <div class="home-box one">
+            <div class="box box1">
+
+                <div class="div-side ">
+                    <div class="image div"><img src="https://i.pinimg.com/originals/7e/ce/d2/7eced2a8f7ae72b2bef56fc6c0aa3b01.jpg" alt="">
+                        <p id="para" >Want to know the latest AI technology?</p>
+                    </div>
+                    <div class="image div"><img src="https://i.pinimg.com/originals/f8/48/d8/f848d8593a5dfe8b5f0235b00a3ed4b7.jpg" alt="">
+                    <p id="para" style="bottom: 15%;">The new scientific researches</p></div>
+                </div>
+                <div class="div-center ">
+                    <div class="image-center div"><img src="https://i.pinimg.com/originals/17/e7/c4/17e7c4ecbb2be4cd760b4566a9c265d4.jpg" alt="">
+                    <p id="para" style="font-size: 35px;">Be <span style="color: #f4722b; font-weight: bolder;">Imperfectly Perfect</span></p></div>
+                </div>
+                <div class="div-side">
+                    <div class="image div"><img src="https://i.pinimg.com/originals/85/b8/52/85b852fe429f4f17ed1bfd3a6de20a75.jpg" alt=""><p id="para">Travel around the globe</p></div>
+                    <div class="image div"><img src="https://i.pinimg.com/originals/45/ea/35/45ea3550e0d489d764e68ffb19a6b023.jpg" alt=""><p id="para" style="bottom: 15%;">Know the best cuisines of India</p></div>
+                </div>
+
+            </div>
         </div>
+
+        <div class="home-box two">
+            <div class="box box2">
+                <div class="left">
+                    <div class="top-image">
+                        <img src="<%=travel.image %>" alt="">
+                    </div>
+                    <div class="bottom-content">
+                        <button class="button-category" style="margin-top: 20px;"><a href="/view-all/travel" id="category">Travel</a></button>
+                        <a href="/post/read-post/<%=travel._id %>" id="content"><h3><%=travel.title %></h3></a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="right-box">
+                        <div class="right-image">
+                            <img src="<%=beauty.image %>" alt="">
+                        </div>
+                        <div class="right-content">
+                            <button class="button-category"><a href="/view-all/beauty" id="category">Beauty</a></button>
+                            <a href="/post/read-post/<%=beauty._id %>" id="content"><h4><%=beauty.title %></h4></a>
+                        </div>
+                    </div>
+                    <div class="right-box">
+                        <div class="right-image">
+                            <img src="<%=food.image %>" alt="">
+                        </div>
+                        <div class="right-content">
+                            <button class="button-category"><a href="/view-all/food" id="category">Food</a></button>
+                            <a href="/post/read-post/<%=food._id %>" id="content"><h4><%=food.title %></h4></a>
+                        </div>
+                    </div>
+                    <div class="right-box">
+                        <div class="right-image">
+                            <img src="<%=tech.image %>" alt="">
+                        </div>
+                        <div class="right-content">
+                            <button class="button-category"><a href="/view-all/technology" id="category">Technology</a></button>
+                            <a href="/post/read-post/<%=tech._id %>" id="content"><h4><%=tech.title %></h4></a>
+                        </div>
+                    </div>
+                    <div class="right-box">
+                        <div class="right-image">
+                            <img src="<%=science.image %>" alt="">
+                        </div>
+                        <div class="right-content">
+                            <button class="button-category"><a href="/view-all/science" id="category">Science</a></button>
+                            <a href="/post/read-post/<%=science._id %>" id="content"><h4><%=science.title %></h4></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="feedback-box">
+            <div class="feedback-container">
+                <div class="box-one">
+                    <div class="author-image">
+                        <img src="/images/Aboutpage-1.png" alt="">
+                        <div class="name-details">
+                            <h3>Sam Dubey</h3>
+                            <p>About</p>
+                        </div>
+                    </div>
+                    <div class="author-feedback">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, perspiciatis saepe! Quaerat rerum deserunt aspernatur debitis consectetur aperiam ullam suscipit.</h5>
+                    </div>
+                </div>
+                <div class="box-two">
+                    <div class="author-image">
+                        <img src="/images/Aboutpage-1.png" alt="">
+                        <div class="name-details">
+                            <h3>Sam Dubey</h3>
+                            <p>About</p>
+                        </div>
+                    </div>
+                    <div class="author-feedback">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, perspiciatis saepe! Quaerat rerum deserunt aspernatur debitis consectetur aperiam ullam suscipit.</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
     </div>
-    <%- include("./layouts/footer.ejs") %>
+    <div class="footer">
+
+        <div id="footer">
+          <h1>Thanks for choosing <span style="color:#f4722b;">Lekh-Luster</span></h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex quod reprehenderit quae totam? Eveniet quod totam at enim recusandae similique?Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt in necessitatibus eum voluptatum adipisci vel, fugit ex ad reprehenderit magni?</p>
+        <div id="button-div">
+         <a href="/feedback" id="feedback"><button id="feedback-button">Give us your valuable feedback</button></a>
+        </div>
+        </div>
+          
+    </div>
+    
 </body>
 </html>

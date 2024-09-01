@@ -4,6 +4,7 @@ const path=require("path");
 const cookieParser=require("cookie-parser");
 const authRoutes=require("./routes/authRoutes");
 const postRoutes=require("./routes/postRoutes");
+const profileRoutes=require("./routes/profileRoutes")
 const homeRoutes=require("./routes/homeRoutes");
 const likeModel=require("./models/likeModel");
 const multer=require("multer");
@@ -118,6 +119,7 @@ app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce
 app.use("/",authRoutes);
 app.use("/",postRoutes);
 app.use("/",homeRoutes);
+app.use("/",profileRoutes);
 
 
 http.listen(3000,function(){

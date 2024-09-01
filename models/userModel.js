@@ -13,8 +13,23 @@ const userSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    gender:{
+        type:String,
+        default:"He/She"
+    }
+    ,
+    about:{
+        type:String,
+        default:"https://tse3.mm.bing.net/th?id=OIP.LxjOupTnLzVHAnMyXN2WOwHaHa&pid=Api&P=0&h=180"
+    },
+    description:{
+        type:String,
+        default:"Blogger at Lekh Luster"
+    }
+    ,
     profilePic:{
-        type:String
+        type:String,
+        default:""
     },
     posts:[
         {

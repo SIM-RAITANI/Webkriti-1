@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/stories.css" />
+  </head>
+  <body>
+    <%- include("./layouts/header.ejs") %>
+    <div class="story-container">
+      <div class="story-box">
+        <div class="image-story-container">
+          <div class="image-1">
+            <img
+              src="https://i.pinimg.com/564x/83/cc/d8/83ccd845930f04089eb3325011a0fcdf.jpg"
+              alt=""
+              style="opacity: 0.8"
+            />
+            <h3 class="text-heading">
+              Write about what makes your heart passionate!It's time to show off
+              your culinary skills.
+            </h3>
+          </div>
+          <div class="image-2">
+            <div class="part">
+              <img
+                src="https://i.pinimg.com/564x/db/26/18/db261825c698d6a982262c34e4db4755.jpg"
+                alt=""
+                style="opacity: 0.8"
+              />
+              <h3 class="text-heading">Learn as well as share knowledge.</h3>
+            </div>
+            <div class="part">
+              <img
+                src="https://i.pinimg.com/564x/46/6f/be/466fbe7130315c4f9f280ad5879272f8.jpg"
+                alt=""
+                style="opacity: 0.8"
+              />
+              <h3 class="text-heading">Grow up and show the world you can.</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="stories-container">
+          <div class="technology common">
+            <div class="top-heading">
+              <div class="type">
+                <h3>Technology</h3>
+                <button class="button-view-all"><a href="/view-all/Technology" style="color: white;">View all</a></button>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div class="cards">
+              <% technology.forEach(story => { %>
+              <div class="card">
+                <a href="/post/read-post/<%=story._id %>"
+                  ><img src="<%=story.image %>" alt="" id="postImage"
+                /></a>
+                <a href="/post/read-post/<%=story._id %>"
+                  ><h4 class="post-title">
+                    <%=story.title %>
+                  </h4></a
+                >
+              </div>
+              <% }) %>
+            </div>
+          </div>
+          <div class="travel common">
+            <div class="top-heading">
+              <div class="type">
+                <h3>Food</h3>
+                <button class="button-view-all"><a href="/view-all/Food" style="color: white;">View all</a></button>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div class="cards">
+              <% food.forEach(story => { %>
+              <div class="card">
+                <a href="/post/read-post/<%=story._id %>"
+                  ><img src="<%=story.image %>" alt="" id="postImage"
+                /></a>
+                <a href="/post/read-post/<%=story._id %>"
+                  ><h4 class="post-title">
+                    <%=story.title %>
+                  </h4></a
+                >
+              </div>
+              <% }) %>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      
+      
+    </div>
+
+    <div class="footer">
+
+      <div id="footer">
+        <h1>Thanks for choosing <span style="color:#f4722b;">Lekh-Luster</span></h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex quod reprehenderit quae totam? Eveniet quod totam at enim recusandae similique?Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt in necessitatibus eum voluptatum adipisci vel, fugit ex ad reprehenderit magni?</p>
+      <div id="button-div">
+        <button id="feedback-button"><a href="/feedback" id="feedback">Give us your valuable feedback</a></button>
+      </div>
+      </div>
+        
+    </div>
+   
+    
+  </body>
+</html>

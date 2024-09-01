@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scrollbar-width: 0;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  /* From Uiverse.io by gagan-gv */
+  .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+   
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    background: #040f16;
+    
+    color: #f5f5f5;
+  }
+  
+  .btn:hover {
+    box-shadow: 0 0 20px 0px #2e2e2e3a;
+  }
+  
+  
+  .btn .icon {
+    position: absolute;
+    height: 40px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  
+  .btn .text1 {
+    transform: translateX(55px);
+  }
+  
+  .btn:hover .icon {
+    width: 175px;
+  }
+  
+  .btn:hover .text1 {
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active .icon {
+    transform: scale(0.85);
+  }
+  
+  .top-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  /* From Uiverse.io by shadowmurphy */
+  .input {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: #0D1117;
+    justify-content: center;
+    border-radius: 5px;
+  
+  
+  }
+  
+  .value {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+    display: flex;
+    font-size: 16px;
+    position: relative;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+  
+  }
+  
+  .value:not(:active):hover,
+  .value:focus {
+    background-color: #21262C;
+  }
+  
+  .value:focus,
+  .value:active {
+    background-color: #1A1F24;
+    outline: none;
+  }
+  
+  .value::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    width: 5px;
+    height: 80%;
+    background-color: #2F81F7;
+    border-radius: 5px;
+    opacity: 0;
+  }
+  
+  .value:focus::before,
+  .value:active::before {
+    opacity: 1;
+  }
+  
+  .value svg {
+    width: 15px
+  }
+  
+  .left-box {
+    min-height: 100vh;
+    background-color: #040f16;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    position: relative;
+  
+  }
+  
+  .container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+  
+  }
+  
+  .right-box {
+    width: 100%;
+    min-height: 100vh;
+    flex-grow: 1;
+    display: flex;
+   justify-content: center;
+  
+   overflow-x: hidden;
+    
+    overflow-y: scroll;
+    scrollbar-width: 0;
+   
+  }
+  
+  /* From Uiverse.io by Lealdos */
+  .Btn {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: ffff;
+    bottom: 5%;
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 18px;
+  }
+  
+  .sign svg path {
+    fill: black;
+  }
+  
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: 0.3s;
+  }
+  
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: 0.3s;
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: 0.3s;
+    padding-left: 20px;
+  }
+  
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: 0.3s;
+    padding-right: 10px;
+  }
+  
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px, 2px);
+  }
+  
+  .dummy {
+    width: 100%;
+    height: 510px;
+  }
+  .content {
+    display: none;
+    height:100vh;
+  }
+  
+  
+  #div1 {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  
+  }
+  .profile-img{
+    height: 200px;
+    width:  200px;
+    border-radius: 50%;
+  }
+  .profilecontent{
+    height:70%;
+    width:90%;
+    border:3px solid black;
+    border-radius: 20px;
+    margin: auto;
+  }
+  .edit-prof{
+    font-size: 20px;
+    background-color: #040f16;
+    padding: 20px;
+    border-radius:35px ;
+  }
+  #div3{
+    height: 100%;
+    width: 100%;
+    padding-top: 20px;
+    text-align: center;
+    
+    
+  }
+  .blogcards{
+    height: 750px;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; 
+    box-shadow: 2px 2px gainsboro;
+    border:1px gainsboro;
+    
+  
+  
+  }
+  .blogcards::-webkit-scrollbar { 
+    display: none;  /* For Chrome, Safari, and Opera */
+  }
+  .blogcard{
+    min-height: 300px;
+    width: 80%;
+    margin: auto;
+   
+    display: flex;
+    border: 2px solid black;
+    border-radius:10px ;
+    box-shadow: 2px 2px;
+    
+  
+  
+  }
+  .blog-image{
+    width: 30%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    
+    border-radius: 10px;
+    box-shadow: 1px 1px gray; 
+  
+  
+  }
+  .blog-content{
+    width: 70%;
+    height: 100%;
+    
+  }
+  /* From Uiverse.io by satyamchaudharydev */ 
+  .read-blog {
+    --primary-color: #c6912e;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+  }
+  
+  .read-blog .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .read-blog .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  .read-blog .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  .read-blog:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .read-blog:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  .read-blog:hover .arrow:before {
+    right: 0;
+  }
+  .blog-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  
+  }
+  .blog-image1{
+    height: 80%;
+    width: 100%;
+  
+  
+  }
+  a:active{
+    color:#f4722b;
+  }
+
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* background-color: black; */
+    border: none;
+    cursor: pointer;
+
+  }
+  svg{
+    color: white;
+    border: none;
+  }
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

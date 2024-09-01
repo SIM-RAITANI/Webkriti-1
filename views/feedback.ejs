@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/feedback.css">
+</head>
+<body>
+    <%- include("./layouts/header.ejs") %>
+    <div class="container">
+        <div class="box">
+            <h1 style="color: #f4722b;">Feedback Form</h1>
+            <form action="/feedback" method="post">
+                <input type="text" placeholder="Enter your registered e-mail" name="email">
+                <% if (msg !== "") { %>
+                    <p id="error-message"><%= msg %></p>
+                <% } %>
+                
+                <textarea name="feedback" id="feedback" placeholder="Enter your feedback" rows="6" required></textarea>
+                <button type="submit" id="feedback-button">Send</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let message=document.querySelector("#error-message");
+        setTimeout(()=>{
+            message.innerText="";
+
+        },4000)
+    </script>
+</body>
+</html>

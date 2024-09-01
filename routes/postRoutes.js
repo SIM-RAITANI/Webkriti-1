@@ -38,7 +38,7 @@ router.post("/post",isLoggedin,createPost)
 
 router.get("/allposts",isLoggedin,async function(req,res){
     let userprofile=await userModel.findOne({_id:req.user._id}).populate("posts");
-    res.render("allPost",{userprofile});
+    res.render("dashboard",{page:"Show Posts",userprofile});
 
 });
 router.get("/post/like/:id",isLoggedin,likePost);
@@ -46,22 +46,7 @@ router.get("/post/edit/:id",isLoggedin,editPost);
 router.post("/post/edit/:id",isLoggedin,editPostContent);
 router.get("/post/delete/:id",isLoggedin,deletePost);
 router.get("/post/read-post/:id",readPost);
-router.get("/profile",function(req,res){
-    res.render("profile",{activeSection:"profilePage"})
-});
 
-
-
-router.get('/profile/:section', (req, res) => {
-    const section = req.params.section;
-    const validSections = ['overview', 'settings', 'posts', 'account'];
-
-    if (validSections.includes(section)) {
-        res.render('profile', { activeSection: section });
-    } else {
-        res.redirect('/profile/overview');
-    }
-});
 
 router.post("/post/add-comment",isLoggedin,addComments);
 
@@ -73,8 +58,8 @@ router.post("/post/reply/:id", isLoggedin,replyComment);
 router.post("/post/upload-image",upload.single("image"),isLoggedin,uploadImage);
 
 //to get the profile dashboard
-router.get("/dashboard",function(req,res) {
-    res.render("dashboard");
+router.get("/dashboard",isLoggedin,function(req,res) {
+    res.render("dashboard",{page:""});
 })
 
 

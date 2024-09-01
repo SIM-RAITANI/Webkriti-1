@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/stylesheets/editProfile.css" />
+
+<div class="editProfile">
+  <h1 class="edit-heading">Edit Profile</h1>
+  <form
+    action="/profile/edit"
+    method="POST"
+    enctype="multipart/form-data"
+    id="image-upload-form"
+  >
+    <div class="image-change">
+      <img src="<%=user.profilePic %>" alt="" id="profile-image" />
+      <input type="file" name="image" id="file-upload" style="border: none;" />
+    </div>
+    <div class="input-field">
+
+        <label for="name">Name:</label>
+      <input
+        type="text"
+        placeholder="name"
+        value="<%=user.name %>"
+        name="name"
+        id="name"
+      />
+      
+    </div>
+    <div class="input-field">
+      <label for="gender">Gender:</label>
+      <input
+        type="text"
+        placeholder="gender"
+        value="<%=user.gender %>"
+        name="gender"
+        id="gender"
+      />
+    </div>
+    <div class="input-field">
+      <label for="about">About:</label>
+      <input
+        type="text"
+        placeholder="about"
+        value="<%=user.about %>"
+        name="about"
+        id="about"
+      />
+    </div>
+    <div class="input-field">
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        placeholder="description"
+        value="<%=user.description %>"
+        name="description"
+      />
+    </div>
+    <button type="submit" id="upload-button">Upload</button>
+  </form>
+</div>

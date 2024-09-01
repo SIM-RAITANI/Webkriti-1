@@ -5,6 +5,7 @@ const { generateToken } = require("../utils/generateToken");
 const Randomstring = require("randomstring");
 const nodemailer = require("nodemailer");
 const passwordConfig = require("../config/password-config");
+const postModel=require("../models/postModel");
 
 //function to send mail using smtp gmail engine
 const sendEmailReset = async (email, name, token) => {
@@ -94,8 +95,24 @@ module.exports.registerUser = async function (req, res) {
   }
 };
 module.exports.logout = function (req, res) {
-  res.cookie("token", "");
-  res.redirect("/landing");
+
+  try {
+
+    res.cookie("token", "");
+    
+    res.redirect("/landing");
+
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+
+
+  
+    
+
+  
 };
 //function to reset the password field using nodemailer / randomstring
 module.exports.forgetPassword = async function (req, res) {
@@ -170,3 +187,15 @@ module.exports.setResetPass = async function (req, res) {
     console.log(error);
   }
 };
+module.exports.getHomePage=async function(req,res){
+  let food=await postModel.findOne({category:"Food"});
+  let tech=await postModel.findOne({category:"Technology"});
+  let beauty=await postModel.findOne({category:"Beauty"});
+  let science=await postModel.findOne({category:"Science"});
+  
+  let travel=await postModel.findOne({category:"Travel"});
+
+  res.render("home",{food,tech,beauty,science,travel});
+  
+
+}

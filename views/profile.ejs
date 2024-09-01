@@ -14,18 +14,18 @@
     </nav>
     <div class="container">
         <div class="images">
-            <img src="/images/cover.png" alt="" class="cover" name="cover">
-            <img src="profile.png" alt="" class="profile" name="profile">
-            <div class="dummy1">
-
+            <div class="image-div">
+              <img src="/images/cover.png" alt="" class="cover" name="cover">
+            <img src="<%=user.profilePic ? user.profilePic : 'https://static.vecteezy.com/system/resources/previews/000/610/111/original/human-icon-logo-design-template-vector-illustration.jpg' %>" alt="" class="profile" name="profile">
             </div>
+          
             <div class="details">
                 <div class="names">
                  <h1>
-                     AKSHAT DUBEY
+                     <%=user.name %>
                  </h1>
                  <h3>
-                     Senior software developer at google
+                     <%=user.about %>
                  </h3>
                 </div>
              </div>
@@ -36,10 +36,10 @@
         <div class="more-details">
             <h1 style="width:100%; text-align: center; font-size: 50px; font-family: Arial, Helvetica, sans-serif;">About Author</h1>
             <p class="bio">
-
+                  <%=user.description %>
             </p>
             <button class="cta">
-                <span class="hover-underline-animation"> EDIT YOUR PROFILE </span>
+                <span class="hover-underline-animation"> <a href="/profile/editProfile" class="edit-profile">EDIT YOUR PROFILE </a></span>
                 <svg
                   id="arrow-horizontal"
                   xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@
             <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
             </span>
-            <span class="button-text">DASHBOARD</span>
+            <span class="button-text"><a href="/dashboard" class="dashboard-link">DASHBOARD</a></span>
           </button>
           <div class="gap">
 
