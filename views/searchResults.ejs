@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- searchResults.ejs -->
+<h1>Search Results for "<%= searchQuery %>"</h1>
+
+<% if (results.length > 0) { %>
+    <ul>
+        <% results.forEach(post => { %>
+            <li>
+                <h2><%= post.title %></h2>
+                <p><%= post.content.substring(0, 100) %>...</p>
+                <p>Author: <%= post.author %></p>
+                <a href="/post/read-post/<%= post._id %>">Read more</a>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No results found for "<%= searchQuery %>".</p>
+<% } %>
+
+</body>
+</html>
