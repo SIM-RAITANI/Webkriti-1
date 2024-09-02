@@ -9,6 +9,12 @@ const homeRoutes=require("./routes/homeRoutes");
 const likeModel=require("./models/likeModel");
 const multer=require("multer");
 
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app");
+    next();
+  });
+  
+
 //using font-awesome in node
 app.use(express.static('node_modules/@fortawesome/fontawesome-free'));
 
