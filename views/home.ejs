@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app;">
+    
 
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/home.css">
@@ -87,7 +87,22 @@
         </div>
         <div class="feedback-box">
             <div class="feedback-container">
-                <div class="box-one">
+                <% feedback.forEach(feed => { %>
+                    <div class="box-one">
+                        <div class="author-image">
+                            <img src="<%= feed.user.profilePic %>" alt="">
+                            <div class="name-details">
+                                <h3><%= feed.user.name %></h3>
+                                <p><%= feed.user.about %></p>
+                            </div>
+                        </div>
+                        <div class="author-feedback">
+                            <h5><%= feed.feedback %></h5>
+                        </div>
+                    </div>
+                <% }) %>
+                
+                <!-- <div class="box-one">
                     <div class="author-image">
                         <img src="/images/Aboutpage-1.png" alt="">
                         <div class="name-details">
@@ -98,19 +113,7 @@
                     <div class="author-feedback">
                         <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, perspiciatis saepe! Quaerat rerum deserunt aspernatur debitis consectetur aperiam ullam suscipit.</h5>
                     </div>
-                </div>
-                <div class="box-two">
-                    <div class="author-image">
-                        <img src="/images/Aboutpage-1.png" alt="">
-                        <div class="name-details">
-                            <h3>Sam Dubey</h3>
-                            <p>About</p>
-                        </div>
-                    </div>
-                    <div class="author-feedback">
-                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, perspiciatis saepe! Quaerat rerum deserunt aspernatur debitis consectetur aperiam ullam suscipit.</h5>
-                    </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -120,7 +123,7 @@
 
         <div id="footer">
           <h1>Thanks for choosing <span style="color:#f4722b;">Lekh-Luster</span></h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex quod reprehenderit quae totam? Eveniet quod totam at enim recusandae similique?Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt in necessitatibus eum voluptatum adipisci vel, fugit ex ad reprehenderit magni?</p>
+        <p>"Thank you for choosing Lekh-Luster, where every story shines with creativity and insight. We are committed to bringing you a diverse range of content that informs, inspires, and ignites your passion. Whether you're here to explore, learn, or share your voice, Lekh-Luster is your space to connect with ideas that matter. Join us on this journey of storytelling, and let's make every word count."</p>
         <div id="button-div">
          <a href="/feedback" id="feedback"><button id="feedback-button">Give us your valuable feedback</button></a>
         </div>

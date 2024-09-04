@@ -1,4 +1,4 @@
-*{
+/* *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -79,4 +79,147 @@ button:hover{
 #myTextarea{
     width: 100%;
     min-height: 800px;
+} */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f7f1e3;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the entire page */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 95px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Wrapper for the form elements */
+.form-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the upload image form */
+#uploadImage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    background-color: white;
+}
+
+/* Styling for the post creation form */
+#addPost {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Styling for all input fields */
+input, select, #myTextarea {
+    outline: none;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Styling for the image upload button */
+.image-upload-button {
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #f4722b;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Styling for the submit button */
+.submit-button {
+    width: 120px;
+    margin: 0px auto;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f4722b;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #f1a349;
+}
+
+/* Styling for the TinyMCE textarea */
+#myTextarea {
+    width: 100%;
+    min-height: 400px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 15px;
+        min-height: 100vh;
+    }
+
+    input, select, #myTextarea {
+        font-size: 14px;
+    }
+
+    .image-upload-button, .submit-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #myTextarea {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-wrapper {
+        padding: 10px;
+    }
+
+    input, select, #myTextarea {
+        font-size: 14px;
+    }
+
+    .image-upload-button, .submit-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #myTextarea {
+        min-height: 250px;
+    }
 }

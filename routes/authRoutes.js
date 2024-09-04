@@ -14,16 +14,16 @@ router.get("/landing",restrictLoggedInAccess,function(req,res){
 
 });
 router.get("/login",restrictLoggedInAccess,function(req,res){
-    res.render("login");
+    res.render("login",{msg:""});
 });
 router.get("/signup",restrictLoggedInAccess,function(req,res){
-    res.render("signup")
+    res.render("signup",{msg:""})
 })
 router.get("/home",isLoggedInMiddleware,getHomePage);
 
 
 //set up the get route to change the password via email
-router.get("/forget-password",isLoggedInMiddleware,function(req,res){
+router.get("/forget-password",function(req,res){
     res.render("forgetPass");
 
 });

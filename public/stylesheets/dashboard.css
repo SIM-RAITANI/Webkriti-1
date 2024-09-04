@@ -10,6 +10,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     scrollbar-width: 0;
+    position: absolute;
   }
   a{
     text-decoration: none;
@@ -27,7 +28,7 @@
     font-weight: 600;
     display: flex;
     align-items: center;
-    background: #040f16;
+  
     
     color: #f5f5f5;
   }
@@ -69,10 +70,15 @@
   }
   
   .top-button {
-    position: fixed;
-    top: 0;
-    left: 0;
+   position: fixed;
+   /* background-color: red; */
+   /* margin-top: 20px;
+   margin-left: 8px; */
+    
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
   }
   
@@ -156,6 +162,7 @@
   .right-box {
     width: 100%;
     min-height: 100vh;
+    /* background-color: aqua; */
     flex-grow: 1;
     display: flex;
    justify-content: center;
@@ -421,10 +428,15 @@
     justify-content: center;
     align-items: center;
     color: white;
-    /* background-color: black; */
+    
+    background-color: red;
     border: none;
     cursor: pointer;
+    
 
+  }
+  i{
+    color: white;
   }
   svg{
     color: white;
@@ -434,4 +446,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media only screen  and (max-width:600px){
+   
+    .right-box{
+      justify-content: flex-end;
+    }
   }

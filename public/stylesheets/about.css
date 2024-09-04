@@ -1,250 +1,369 @@
-*{
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-}
-body{
-    width: 100vw;
-    min-height: 100vh;
-    scrollbar-width: 0;
-    overflow-x: hidden;
-}
-.body-wrapper{
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    
-}
-.body-container{
-    min-height: 100vh;
-    width: 88%;
-    
-    
-}
-.about-image{
-    
-    width: 100%;
-    height: 450px;
-    background-image: url("../images/Aboutback.webp");
-    background-position: cover;
-    background-size: cover;
-    background-color: rgba(79, 41, 0, 0.711); /* Dark color */
-    background-blend-mode: darken; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 
-    
-}
-.wrapper-box{
-    width: 100vw;
-    min-height: 100vh;
-  
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
-a{
-    text-decoration: none;
+body {
+  width: 100vw;
+  min-height: 100vh;
+  scrollbar-width: 0;
+  overflow-x: hidden;
 }
-.about-heading{
-      
-      font-size: 50px;
-      color: white;
-      margin-bottom: 8px;
-}
-.about-image p{
-    font-size: 18px;
-}
-.about-tagline{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 120px;
-    flex-direction: column;
-    width: 100%;
 
+.body-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-.about-tagline h1{
-    font-size: 32px;
-    font-weight: 540;
-    width: 100%;
-    text-align: center;
-    
-    
+
+.body-container {
+  min-height: 100vh;
+  width: 88%;
 }
-.line{
-    margin-top: 30px;
-    margin-bottom: 70px;
-    height: 5px;
-    background-color: #f4722b;
-    width: 100px;
-    border-radius: 1px;
+
+.about-image {
+  width: 100%;
+  height: 450px;
+  background-image: url("../images/Aboutback.webp");
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(79, 41, 0, 0.711); /* Dark color */
+  background-blend-mode: darken; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.about-des{
-    text-align: center;
-    color: #707070;
-    font: 16px Raleway,Sans-serif;
-    margin-bottom: 120px;
+
+.wrapper-box {
+  width: 100vw;
+  min-height: 100vh;
 }
-.gallery-box{
-    width: 100%;
-    display: flex;
-    gap: 30px;
+
+a {
+  text-decoration: none;
+}
+
+.about-heading {
+  font-size: 50px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.about-image p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.about-tagline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:80px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.about-tagline h1 {
+  font-size: 32px;
+  font-weight: 540;
+  width: 100%;
+  text-align: center;
+}
+
+.line {
+  margin-top: 30px;
+  margin-bottom: 70px;
+  height: 5px;
+  background-color: #f4722b;
+  width: 100px;
+  border-radius: 1px;
+}
+
+.about-des {
+  text-align: center;
+  color: #707070;
+  font: 16px Raleway, Sans-serif;
+  margin-bottom: 120px;
+  padding: 0 10px;
+}
+
+.gallery-box {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  width: 300px; /* Set the desired width of the image */
+  height: 300px; /* Set the desired height of the image */
+  overflow: hidden;
+  flex: 1 1 300px; /* Make it responsive */
 }
 
 .image-container img {
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s ease; /* Smooth transition for the hover effect */
-    border-radius: 10px;
-    cursor: pointer;
-  }
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease; /* Smooth transition for the hover effect */
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-.image-container {
-    position: relative;
-    width: 300px; /* Set the desired width of the image */
-    height: 300px; /* Set the desired height of the image */
-    overflow: hidden;
-  }
-  .image-container .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-    opacity: 0;
-    transition: all 0.3s ease; /* Smooth transition for the text */
-  }
-  
-  .image-container:hover img {
-    filter: brightness(50%); /* Darkens the image on hover */
-  }
-  
-  .image-container:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    opacity: 1; /* Show the text on hover */
-  }
+.image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease; /* Smooth transition for the text */
+}
 
+.image-container:hover img {
+  filter: brightness(50%); /* Darkens the image on hover */
+}
+
+.image-container:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  opacity: 1; /* Show the text on hover */
+}
+
+.about-tags {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tags {
+  display: flex;
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  gap: 15px;
+}
+
+.tags-image {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 40px;
+  cursor: pointer;
+}
+
+.tags-image:hover {
+  background-color: #f4722b;
+  color: white;
+  border-color: #f4722b;
+  transition: background-color 0.3s ease;
+}
+
+.tags-image:hover i {
+  color: white; /* Change icon color to white on hover */
+}
+
+.tags-des {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.tags-des h4 {
+  font-size: 20px;
+}
+
+.tags-des p {
+  color: #707070;
+  font: 14px Raleway, Sans-serif;
+}
+
+i {
+  color: gray;
+}
+
+.footer {
+  background-color: #2a2a2a;
+  width: 100%;
+  height: 300px;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer {
+  width: 60%;
+  min-height: 80%;
+}
+
+#footer h1 {
+  text-align: center;
+  color: white;
+}
+
+#footer p {
+  text-align: center;
+  font-size: 14px;
+  color: rgb(181, 179, 179);
+  margin-top: 10px;
+}
+
+#feedback-button {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 4px;
+  background-color: #f4722b;
+  cursor: pointer;
+  margin: 40px auto;
+  color: white;
+}
+
+#button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#feedback-button:hover {
+  background-color: #f48245;
+}
+
+#feedback {
+  text-decoration: none;
+  color: white;
+}
+
+.div {
+  position: relative;
+}
+
+.div img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.5);
+}
+
+.div p {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  font-size: 25px;
+  color: white;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
   .about-tags{
-    width: 100%;
-    display: flex;
-    gap: 50px;
-    margin-top: 20px;
-    
-    justify-content: center;
+     flex-direction: column;
+     margin-bottom: 40px;
   }
-  .tags{
-    display: flex;
-    width: 300px;
-    height: 150px;
-    border-radius: 10px;
-    
-    gap: 15px;
+  .line{
+    margin-bottom: 20px;
   }
-  .tags-image{
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid black;
-    height: 40px;
-    cursor: pointer;
+  .about-heading {
+      font-size: 36px;
   }
-  .tags-image:hover{
-    background-color: #f4722b;
-    color: white;
-    border-color: #f4722b;
-    transition: background-color 0.3s ease;
+
+  .about-image {
+      height: 300px;
   }
-  .tags-image:hover i {
-    color: white; /* Change icon color to white on hover */
+
+  .about-tagline h1 {
+      font-size: 24px;
+      margin-top: 20px;
   }
-  .tags-des{
-    display: flex;
-    gap: 10px;
+
+  .gallery-box {
+      gap: 15px;
+  }
+
+  .image-container {
+      width: 100%;
+      height: auto;
+  }
+
+  .tags {
+      width: 100%;
+      height: auto;
+      /* flex-direction: column;
+      align-items: center; */
+  }
+
+  .tags-image {
+      height: auto;
+      width: 50px;
+  }
+
+  .tags-des h4 {
+      font-size: 18px;
+  }
+
+  .tags-des p {
+      font-size: 14px;
+  }
+
+  .footer {
+      height: auto;
+      padding: 20px;
+  }
+
+  #footer {
+      width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-heading {
+      font-size: 28px;
+  }
+
+  .about-tagline h1 {
+      font-size: 20px;
+      margin-top: 10px;
+  }
+
+  .about-des {
+      font-size: 14px;
+      padding: 0 5px;
+  }
+
+  .tags-des h4 {
+      font-size: 16px;
+  }
+
+  .tags-des p {
+      font-size: 12px;
+  }
+  .about-tags{
     flex-direction: column;
+    margin-bottom: 40px;
   }
-  .tags-des h4{
-    font-size: 20px;
-  }
-  .tags-des p{
-    color: #707070;
-    font: 14px Raleway,Sans-serif;
-  }
-  i{
-    color:gray;
-  }
-
-  .footer{
-    background-color: #2a2a2a;
-    width: 100%;
-    height: 300px;
-    padding: 20px 0px;
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #footer{
-    width: 60%;
-    height: 80%;
-   
-  }
-  #footer h1{
-    text-align: center;
-    color: white;
-  }
-  #footer p{
-    text-align: center;
-    font-size: 14px;
-    color: rgb(181, 179, 179);
-    margin-top: 10px;
-  }
-  #feedback-button{
-    border: none;
-    padding: 10px 30px;
-    border-radius: 4px;
-    background-color: #f4722b;
-    cursor: pointer;
-    margin: 40px auto;
-    color: white;
-  }
-  #button-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-#feedback-button:hover{
-    background-color: #f48245;
+  
 }
-#feedback{
-    text-decoration: none;
-    color:white;
+@media (max-width:610px){
+    #footer h1{
+      font-size: 26px;
+    }
+    #footer p{
+      display: none;
+    }
 }
-.div{
-    position: relative;
-}
-.div img{
-    width: 100%;
-    height: 100%;
-    filter: brightness(0.5);
-
-    
-}
-.div p{
-    position: absolute;
-    left: 5%;
-    bottom: 10%;
-    font-size: 25px;
-    color: white;
-}
-
 
   

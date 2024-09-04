@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/searchResult.css" />
 
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- searchResults.ejs -->
-<h1>Search Results for "<%= searchQuery %>"</h1>
+    <%- include("./layouts/header.ejs") %>
+    <div class="searchResult">
+      <div class="searchResult-box">
+        <h1>Search Results for "<%= searchQuery %>"</h1>
 
-<% if (results.length > 0) { %>
-    <ul>
-        <% results.forEach(post => { %>
-            <li>
-                <h2><%= post.title %></h2>
-                <p><%= post.content.substring(0, 100) %>...</p>
-                <p>Author: <%= post.author %></p>
-                <a href="/post/read-post/<%= post._id %>">Read more</a>
-            </li>
-        <% }) %>
-    </ul>
-<% } else { %>
-    <p>No results found for "<%= searchQuery %>".</p>
-<% } %>
-
-</body>
+        <div class="allResults">
+          <% if (results.length > 0) { %>
+          
+            <% results.forEach(post => { %>
+            <div id="result">
+              <h3><%= post.title %></h3>
+              <p><%- post.content.substring(0, 100) %>...</p>
+              <p>Author: <%= post.author %></p>
+              <a href="/post/read-post/<%= post._id %>" id="read-more">Read more</a>
+            </div>
+            <% }) %>
+          
+          <% } else { %>
+          <p>No results found for "<%= searchQuery %>".</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

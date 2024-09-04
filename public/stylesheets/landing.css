@@ -172,7 +172,7 @@
   
   .wrapper .text {
     white-space: nowrap;
-    color: #e60023;
+    color: #F4722B;
     -webkit-transition-duration: 1s;
             transition-duration: 1s;
   }
@@ -602,4 +602,8 @@
     height: 400px;
     width: 300px;
     border-radius: 30px;
+  }
+  #anchor{
+    text-decoration: none;
+    color: white;
   }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app;">
+    
 
     <title>Lekh-Luster SIGN UP</title>
     <link rel="stylesheet" href="/stylesheets/signup.css">
@@ -18,14 +18,14 @@
             <h2>Welcome to Lekh-Luster</h2>
         </div>
         <form class="login-form" action="/signup" method="post">
-           <input type="text" placeholder="Name" class="email" name="name">
-           <input type="email" placeholder="Email" class="email" name="email">
+           <input type="text" placeholder="Name" class="email" name="name" required>
+           <input type="email" placeholder="Email" class="email" name="email" required>
            <div class="password">
-            <input type="password"  placeholder="Create a password" id="password" name="password">
+            <input type="password"  placeholder="Create a password" id="password" name="password" required>
             <span id="togglePassword" class="toggle-password">&#128065;</span>
            </div>
            <div class="datepicker">
-            <input type="text" id="dateInput" placeholder="DD/MM/YYYY">
+            <input type="text" id="dateInput" placeholder="DD/MM/YYYY" required>
             <span class="calendar-icon">&#x1F4C5;</span> 
            </div>
             

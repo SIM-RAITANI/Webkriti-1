@@ -6,6 +6,7 @@ const Randomstring = require("randomstring");
 const nodemailer = require("nodemailer");
 const passwordConfig = require("../config/password-config");
 const postModel=require("../models/postModel");
+const feedbackModel=require("../models/feedbackModel");
 
 //function to send mail using smtp gmail engine
 const sendEmailReset = async (email, name, token) => {
@@ -50,7 +51,7 @@ module.exports.isLogin = async function (req, res) {
 
     let user = await userModel.findOne({ email: email });
     if (!user) {
-      res.send("NO SUCH USER EXISTES");
+      res.render("login",{msg:"Incorrect credentials"});
     } else {
       console.log(user);
       bcrypt.compare(password, user.password, function (err, result) {
@@ -59,7 +60,7 @@ module.exports.isLogin = async function (req, res) {
           res.cookie("token", token);
           res.redirect("/home");
         } else {
-          res.send("WRONG CREDENTIALS");
+          res.render("login",{msg:"Incorrect email or password"});
         }
       });
     }
@@ -167,7 +168,7 @@ module.exports.setResetPass = async function (req, res) {
             { _id: userId },
             { $set: { password: hash, token: "" } }
           );
-          user.save();
+         
           if (user) {
             console.log(user);
 
@@ -194,8 +195,9 @@ module.exports.getHomePage=async function(req,res){
   let science=await postModel.findOne({category:"Science"});
   
   let travel=await postModel.findOne({category:"Travel"});
+  let feedback=await feedbackModel.find({}).populate("user");
 
-  res.render("home",{food,tech,beauty,science,travel});
+  res.render("home",{food,tech,beauty,science,travel,feedback});
   
 
 }

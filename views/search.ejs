@@ -3,24 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app;">
 
     <title>Document</title>
-    <link rel="stylesheet" href="/stylesheets/search.css">
+    <link rel="stylesheet" href="/stylesheets/search.css" />
   </head>
   <body>
     <!-- search.ejs -->
-    <form id="search-form" action="/search-post" method="GET">
-      <input
-        type="text"
-        id="search-input"
-        name="query"
-        placeholder="Search by title, content, author..."
-        autocomplete="off"
-      />
-      <div id="autocomplete-results"></div>
-      <button type="submit">Search</button>
-    </form>
+    <%- include("./layouts/header.ejs") %> 
+    <div class="search-form">
+      <form id="search-form" action="/search-post" method="GET">
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-input"
+            name="query"
+            placeholder="Search by title, content, author..."
+            autocomplete="off"
+          />
+          <button type="submit">Search</button>
+        </div>
+        <div id="autocomplete-results"></div>
+      </form>
+    </div>
   </body>
   <script src="/javascripts/search.js"></script>
 </html>

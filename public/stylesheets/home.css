@@ -147,14 +147,17 @@ a{
 
 .feedback-box{
     width: 100vw;
-    min-height: 20vw;
+    /* min-height: 20vw; */
     background-color: rgb(255, 241, 241);
     display: flex;
     justify-content: center;
+    padding: 5%;
+
 }
 .feedback-container{
     width: 80%;
     min-height: 100%;
+
   
     display: flex;
     justify-content: center;
@@ -163,7 +166,7 @@ a{
 }
 .box-one,.box-two{
     width: 30%;
-    min-height: 60%;
+    height: 150px;
    background-color: white;
     padding: 20px;
     display: flex;

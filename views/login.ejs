@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'blob:' https://webkriti-1-41korl07v-sim-raitanis-projects.vercel.app;">
+    
 
     <title>Login Page</title>
     <link rel="stylesheet" href="/stylesheets/login.css">
@@ -13,6 +13,10 @@
         <div class="login-header">
             <img src="/images/finallogo.png" alt="Logo" class="logo">
             <h2>Welcome to Lekh-Luster</h2>
+            <% if (msg !== "") { %>
+                <p id="error-message"><%= msg %></p>
+            <% } %>
+            
         </div>
         <form class="login-form" action="/login" method="post">
             <input type="email" placeholder="Email" required style="width: 278px;" name="email">
@@ -26,5 +30,11 @@
         </div>
     </div>
     <script src="scripts.js"></script>
+    <script>
+        let msg=document.querySelector("#error-message");
+        setTimeout(()=>{
+             msg.innerText="";
+        },5000)
+    </script>
 </body>
 </html>
