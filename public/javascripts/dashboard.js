@@ -47,7 +47,7 @@ function handleMediaQueryChange(e) {
     if (e.matches) {
         // The viewport is 600px or less
         console.log('Viewport is 600px or less');
-        leftBox.style.display = 'block';  // Hide the dashboard by default
+        // leftBox.style.display = 'block';  // Hide the dashboard by default
         rightBox.style.display = 'none';
         icon.style.color="white"; // Show the container by default
 
@@ -66,6 +66,10 @@ function handleMediaQueryChange(e) {
                   // Reset icon color or any other styles
             }
         });
+
+        function change(){
+            leftBox.style.display="none";
+        }
     } else {
         // The viewport is wider than 600px
         console.log('Viewport is wider than 600px');
