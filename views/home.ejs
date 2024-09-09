@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/Favicon/site.webmanifest" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -85,38 +89,27 @@
                 </div>
             </div>
         </div>
-        <div class="feedback-box">
-            <div class="feedback-container">
-                <% feedback.forEach(feed => { %>
-                    <div class="box-one">
-                        <div class="author-image">
-                            <img src="<%= feed.user.profilePic %>" alt="">
-                            <div class="name-details">
-                                <h3><%= feed.user.name %></h3>
-                                <p><%= feed.user.about %></p>
+        <% if (feedback.length > 0) { %>
+            <div class="feedback-box">
+                <div class="feedback-container">
+                    <% feedback.forEach(feed => { %>
+                        <div class="box-one">
+                            <div class="author-image">
+                                <img src="<%= feed.user.profilePic %>" alt="">
+                                <div class="name-details">
+                                    <h3><%= feed.user.name %></h3>
+                                    <p><%= feed.user.about %></p>
+                                </div>
+                            </div>
+                            <div class="author-feedback">
+                                <h5><%= feed.feedback %></h5>
                             </div>
                         </div>
-                        <div class="author-feedback">
-                            <h5><%= feed.feedback %></h5>
-                        </div>
-                    </div>
-                <% }) %>
-                
-                <!-- <div class="box-one">
-                    <div class="author-image">
-                        <img src="/images/Aboutpage-1.png" alt="">
-                        <div class="name-details">
-                            <h3>Sam Dubey</h3>
-                            <p>About</p>
-                        </div>
-                    </div>
-                    <div class="author-feedback">
-                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, perspiciatis saepe! Quaerat rerum deserunt aspernatur debitis consectetur aperiam ullam suscipit.</h5>
-                    </div>
-                </div> -->
+                    <% }) %>
+                </div>
             </div>
-
-        </div>
+        <% } %>
+        
        
     </div>
     <div class="footer">
@@ -133,3 +126,4 @@
     
 </body>
 </html>
+

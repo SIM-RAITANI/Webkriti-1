@@ -20,7 +20,7 @@ const userSchema=mongoose.Schema({
     ,
     about:{
         type:String,
-        default:"https://tse3.mm.bing.net/th?id=OIP.LxjOupTnLzVHAnMyXN2WOwHaHa&pid=Api&P=0&h=180"
+        default:""
     },
     description:{
         type:String,
@@ -29,7 +29,7 @@ const userSchema=mongoose.Schema({
     ,
     profilePic:{
         type:String,
-        default:""
+        default:"https://tse3.mm.bing.net/th?id=OIP.LxjOupTnLzVHAnMyXN2WOwHaHa&pid=Api&P=0&h=180"
     },
     posts:[
         {
