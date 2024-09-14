@@ -68,6 +68,8 @@ function handleMediaQueryChange(e) {
         });
 
         function change(){
+            console.log("helo sim");
+            
             leftBox.style.display="none";
         }
     } else {
